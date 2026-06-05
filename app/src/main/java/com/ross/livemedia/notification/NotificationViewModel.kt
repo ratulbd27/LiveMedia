@@ -203,7 +203,7 @@ class NotificationViewModel(
         val musicAppName = context.packageManager.getAppName(musicState.packageName) as String
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(MusicProvider.getByAppName(musicAppName).iconRes)
+            .setSmallIcon(MusicProvider.getByAppNameOrPackage(musicAppName, musicState.packageName).iconRes)
             .setContentTitle(musicState.title)
             .setOngoing(true)
             .setCategory(Notification.CATEGORY_PROGRESS)

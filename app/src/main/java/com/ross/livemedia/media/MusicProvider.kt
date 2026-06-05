@@ -84,8 +84,8 @@ enum class MusicProvider(
     );
 
     companion object {
-        fun getByAppName(appName: String): MusicProvider {
-            return entries.firstOrNull { it.appName == appName } ?: UNKNOWN
+        fun getByAppNameOrPackage(appName: String, appPackage: String): MusicProvider {
+            return entries.firstOrNull { it.appName == appName || it.packageName == appPackage } ?: UNKNOWN
         }
     }
 }
